@@ -13,7 +13,7 @@ public class UndoableStringBuilder {
 
     // Stack.size()
     public UndoableStringBuilder() {
-        my_stack = new Stack<String>();
+        my_stack = new Stack<>();
     }
 
     /**

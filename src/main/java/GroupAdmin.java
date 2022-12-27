@@ -23,7 +23,8 @@ public class GroupAdmin implements Sender {
      */
     @Override
     public void register(Member obj) {
-        if (!this.customers.contains(obj)) {
+        if (obj != null && !this.customers.contains(obj)) {
+            obj.update(this.situations);
             this.customers.add(obj);
         }
     }
@@ -36,6 +37,15 @@ public class GroupAdmin implements Sender {
     @Override
     public void unregister(Member obj) {
         this.customers.remove(obj);
+//        this.situations =
+    }
+
+    @Override
+    public String toString() {
+        return "GroupAdmin{" +
+                "situations=" + situations +
+                ", customers=" + customers +
+                '}';
     }
 
     /**
