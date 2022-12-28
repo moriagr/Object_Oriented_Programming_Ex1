@@ -15,7 +15,7 @@ public class ConcreteMember implements Member {
     /**
      * This function shallowCopy the undoableStringBuilder to current undoableStringBuilder.
      *
-     * @param usb
+     * @param usb is the undoableStringBuilder that we want to shallow copy.
      */
     @Override
     public void update(UndoableStringBuilder usb) {
