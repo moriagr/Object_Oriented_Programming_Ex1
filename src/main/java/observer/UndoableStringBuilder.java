@@ -3,9 +3,6 @@ package observer;
 import java.util.*;
 import java.lang.StringBuilder;
 
-/*
-Use the class you've implemented in previous assignment
- */
 public class UndoableStringBuilder {
 
     Stack<String> my_stack;

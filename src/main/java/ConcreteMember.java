@@ -13,7 +13,7 @@ public class ConcreteMember implements Member {
     }
 
     /**
-     * This function shallowCopy the undoableStringBuilder to current undoableStringBuilder.
+     * This function shallow copies the undoableStringBuilder to current undoableStringBuilder.
      *
      * @param usb is the undoableStringBuilder that we want to shallow copy.
      */

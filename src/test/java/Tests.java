@@ -57,6 +57,7 @@ public class Tests {
         ConcreteMember concreteMember = new ConcreteMember();
         ConcreteMember concreteMember1 = new ConcreteMember();
         groupAdmin.append("hello");
+        JvmUtilities.jvmInfo();
 
         groupAdmin.register(concreteMember);
         assertEquals("[ConcreteMember{undoableStringBuilder=hello}]", groupAdmin.getCustomers().toString());
