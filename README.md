@@ -7,9 +7,9 @@
 > git clone https://github.com/moriagr/Object_Oriented_Programming_Ex1.git
 
 ### Run project
-* open the project in java editor
-* reach src -> test -> java -> Tests.java
-* run Tests.java
+* Open the project in java editor
+* Reach src -> test -> java -> Tests.java
+* Run Tests.java
 
 
 
