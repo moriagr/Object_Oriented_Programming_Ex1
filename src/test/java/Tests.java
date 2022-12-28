@@ -59,16 +59,16 @@ public class Tests {
         groupAdmin.append("hello");
 
         groupAdmin.register(concreteMember);
-        assertEquals("GroupAdmin{situations=hello, customers=[ConcreteMember{undoableStringBuilder=hello}]}", groupAdmin.toString());
+        assertEquals("[ConcreteMember{undoableStringBuilder=hello}]", groupAdmin.getCustomers().toString());
 
         groupAdmin.register(concreteMember);
-        assertEquals("GroupAdmin{situations=hello, customers=[ConcreteMember{undoableStringBuilder=hello}]}", groupAdmin.toString());
+        assertEquals("[ConcreteMember{undoableStringBuilder=hello}]", groupAdmin.getCustomers().toString());
 
         groupAdmin.register(concreteMember1);
-        assertEquals("GroupAdmin{situations=hello, customers=[ConcreteMember{undoableStringBuilder=hello}, ConcreteMember{undoableStringBuilder=hello}]}", groupAdmin.toString());
+        assertEquals("[ConcreteMember{undoableStringBuilder=hello}, ConcreteMember{undoableStringBuilder=hello}]", groupAdmin.getCustomers().toString());
 
         groupAdmin.register(null);
-        assertEquals("GroupAdmin{situations=hello, customers=[ConcreteMember{undoableStringBuilder=hello}, ConcreteMember{undoableStringBuilder=hello}]}", groupAdmin.toString());
+        assertEquals("[ConcreteMember{undoableStringBuilder=hello}, ConcreteMember{undoableStringBuilder=hello}]", groupAdmin.getCustomers().toString());
     }
 
     @Test
@@ -103,7 +103,7 @@ public class Tests {
         testStr.append("A whole world");
         testStr.insert(8, "new ");
         System.out.println(testStr);
-        assertEquals("A whole new world", testStr.toString());
+        assertEquals("A whole new world", testStr.getSituations().toString());
         testStr.insert(20, "newnew ");
     }
 
@@ -111,11 +111,11 @@ public class Tests {
     void append() {
         GroupAdmin testStr = new GroupAdmin();
         testStr.append("");
-        assertEquals("", testStr.toString());
+        assertEquals("", testStr.getSituations().toString());
         testStr.append("to be or not to be");
-        assertEquals("to be or not to be", testStr.toString());
+        assertEquals("to be or not to be", testStr.getSituations().toString());
         testStr.append("be");
-        assertEquals("to be or not to bebe", testStr.toString());
+        assertEquals("to be or not to bebe", testStr.getSituations().toString());
     }
 
     @Test
@@ -123,9 +123,9 @@ public class Tests {
         GroupAdmin testStr = new GroupAdmin();
         testStr.append("incomprehensibility");
         testStr.delete(2, 11);
-        assertEquals("insibility", testStr.toString());
+        assertEquals("insibility", testStr.getSituations().toString());
         testStr.delete(0, 10);
-        assertEquals("", testStr.toString());
+        assertEquals("", testStr.getSituations().toString());
         testStr.append("video games");
         testStr.delete(-1, 3);
         testStr.delete(-1, 20);

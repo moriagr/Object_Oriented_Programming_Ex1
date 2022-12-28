@@ -7,9 +7,8 @@ import java.util.List;
 
 public class GroupAdmin implements Sender {
 
-    private UndoableStringBuilder situations;
-    private List<Member> customers;
-
+    private final UndoableStringBuilder situations;
+    private final List<Member> customers;
 
     public GroupAdmin() {
         this.situations = new UndoableStringBuilder();
@@ -17,7 +16,7 @@ public class GroupAdmin implements Sender {
     }
 
     /**
-     * methods to register observers
+     * methods to register observers.
      *
      * @param obj is the name of the member we want to register.
      */
@@ -30,14 +29,16 @@ public class GroupAdmin implements Sender {
     }
 
     /**
-     * methods to unregister observers
+     * methods to unregister observers.
      *
      * @param obj is the name of the member we want to unregister.
      */
     @Override
     public void unregister(Member obj) {
-        this.customers.remove(obj);
-//        this.situations =
+        if (obj != null) {
+            obj.update(null);
+            this.customers.remove(obj);
+        }
     }
 
     @Override
@@ -57,6 +58,7 @@ public class GroupAdmin implements Sender {
     @Override
     public void insert(int offset, String obj) {
         this.situations.insert(offset, obj);
+        this.myNotifyAll();
     }
 
     /**
@@ -67,6 +69,7 @@ public class GroupAdmin implements Sender {
     @Override
     public void append(String obj) {
         this.situations.append(obj);
+        this.myNotifyAll();
     }
 
     /**
@@ -78,6 +81,7 @@ public class GroupAdmin implements Sender {
     @Override
     public void delete(int start, int end) {
         this.situations.delete(start, end);
+        this.myNotifyAll();
     }
 
     /**
@@ -86,21 +90,23 @@ public class GroupAdmin implements Sender {
     @Override
     public void undo() {
         this.situations.undo();
+        this.myNotifyAll();
+    }
+
+    /**
+     * Update all the members.
+     */
+    public void myNotifyAll() {
+        for (Member customer : this.customers) {
+            customer.update(this.situations);
+        }
     }
 
     public UndoableStringBuilder getSituations() {
         return situations;
     }
 
-    public void setSituations(UndoableStringBuilder situations) {
-        this.situations = situations;
-    }
-
     public List<Member> getCustomers() {
         return customers;
-    }
-
-    public void setCustomers(List<Member> customers) {
-        this.customers = customers;
     }
 }

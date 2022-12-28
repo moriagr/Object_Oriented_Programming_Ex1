@@ -11,7 +11,7 @@ public class UndoableStringBuilder {
     Stack<String> my_stack;
     StringBuilder strBuild = new StringBuilder();
 
-    // Stack.size()
+
     public UndoableStringBuilder() {
         my_stack = new Stack<>();
     }
@@ -113,7 +113,7 @@ public class UndoableStringBuilder {
     /**
      * reverses the action of an earlier action
      *
-     * @return returns the previous string
+     * @return returns the previous string.
      */
     public void undo() {
         try {
@@ -137,5 +137,3 @@ public class UndoableStringBuilder {
         }
     }
 }
-
-
