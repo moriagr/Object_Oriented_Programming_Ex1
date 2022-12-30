@@ -1,3 +1,4 @@
+import observer.JvmUtilities;
 import observer.UndoableStringBuilder;
 import org.junit.jupiter.api.Test;
 import org.junit.platform.commons.logging.Logger;
@@ -58,6 +59,8 @@ public class Tests {
         ConcreteMember concreteMember1 = new ConcreteMember();
         groupAdmin.append("hello");
         logger.info(JvmUtilities::jvmInfo);
+        String s2 = "Bob";
+        logger.info(() -> JvmUtilities.memoryStats(s2));
 
         groupAdmin.register(concreteMember);
         assertEquals("[ConcreteMember{undoableStringBuilder=hello}]", groupAdmin.getCustomers().toString());
